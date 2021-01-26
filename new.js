@@ -1,7 +1,7 @@
 function myNew(fn, ...args) {
   // 类型判断
   if (typeof fn !== "function") {
-    throw new Error("fn must be a function");
+    throw new Error("fn is not a function");
   }
 
   // 创建一个新对象, 并链接[[Prototype]]
