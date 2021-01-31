@@ -31,36 +31,30 @@
 
 // obj.method(fn, 1, 2, 3);
 
-// function run(arr, cb) {
-//   const promises = arr.map(
-//     (task) => new Promise((resolve, reject) => task(resolve))
-//   );
-//   Promise.all(promises).then((values) => {
-//     console.log(values);
-//   });
-// }
+function run(arr, cb) {
+  const promises = arr.map(
+    (task) => new Promise((resolve, reject) => task(resolve))
+  );
+  Promise.race(promises).then((values) => {
+    console.log(values);
+  });
+}
 
-// const callback = (res) => console.log(res);
+const callback = (res) => console.log(res);
 
-// const asyncTasks = [
-//   (done) =>
-//     setTimeout(() => {
-//       done(1);
-//     }, 1000),
-//   (done) =>
-//     setTimeout(() => {
-//       done(2);
-//     }, 3000),
-//   (done) =>
-//     setTimeout(() => {
-//       done(3);
-//     }, 2000),
-// ];
+const asyncTasks = [
+  (done) =>
+    setTimeout(() => {
+      done(1);
+    }, 1000),
+  (done) =>
+    setTimeout(() => {
+      done(2);
+    }, 3000),
+  (done) =>
+    setTimeout(() => {
+      done(3);
+    }, 2000),
+];
 
-// run(asyncTasks, callback);
-
-let a = [1, 2];
-
-a.push([3]);
-
-console.log(a);
+run(asyncTasks, callback);
