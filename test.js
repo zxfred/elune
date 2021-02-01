@@ -13,48 +13,48 @@
 
 // console.log("start");
 
-// var length = 10;
+var length = 10;
 
-// function fn() {
-//   console.log(this.length);
-// }
-
-// var obj = {
-//   length: 5,
-//   method: function (fn) {
-//     arguments[0]();
-//     this.fn();
-//     fn();
-//   },
-//   fn,
-// };
-
-// obj.method(fn, 1, 2, 3);
-
-function run(arr, cb) {
-  const promises = arr.map(
-    (task) => new Promise((resolve, reject) => task(resolve))
-  );
-  Promise.race(promises).then((values) => {
-    console.log(values);
-  });
+function fn() {
+  console.log(this.length);
 }
 
-const callback = (res) => console.log(res);
+var obj = {
+  length: 5,
+  method: function (fn) {
+    arguments[0]();
+    this.fn();
+    fn();
+  },
+  fn,
+};
 
-const asyncTasks = [
-  (done) =>
-    setTimeout(() => {
-      done(1);
-    }, 1000),
-  (done) =>
-    setTimeout(() => {
-      done(2);
-    }, 3000),
-  (done) =>
-    setTimeout(() => {
-      done(3);
-    }, 2000),
-];
+obj.method(fn, 1, 2, 3);
 
-run(asyncTasks, callback);
+// function run(arr, cb) {
+//   const promises = arr.map(
+//     (task) => new Promise((resolve, reject) => task(resolve))
+//   );
+//   Promise.race(promises).then((values) => {
+//     console.log(values);
+//   });
+// }
+
+// const callback = (res) => console.log(res);
+
+// const asyncTasks = [
+//   (done) =>
+//     setTimeout(() => {
+//       done(1);
+//     }, 1000),
+//   (done) =>
+//     setTimeout(() => {
+//       done(2);
+//     }, 3000),
+//   (done) =>
+//     setTimeout(() => {
+//       done(3);
+//     }, 2000),
+// ];
+
+// run(asyncTasks, callback);
