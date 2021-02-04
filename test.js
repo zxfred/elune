@@ -13,23 +13,23 @@
 
 // console.log("start");
 
-var length = 10;
+// var length = 10;
 
-function fn() {
-  console.log(this.length);
-}
+// function fn() {
+//   console.log(this.length);
+// }
 
-var obj = {
-  length: 5,
-  method: function (fn) {
-    arguments[0]();
-    this.fn();
-    fn();
-  },
-  fn,
-};
+// var obj = {
+//   length: 5,
+//   method: function (fn) {
+//     arguments[0]();
+//     this.fn();
+//     fn();
+//   },
+//   fn,
+// };
 
-obj.method(fn, 1, 2, 3);
+// obj.method(fn, 1, 2, 3);
 
 // function run(arr, cb) {
 //   const promises = arr.map(
@@ -58,3 +58,32 @@ obj.method(fn, 1, 2, 3);
 // ];
 
 // run(asyncTasks, callback);
+
+// async function run() {
+//   const start = Date.now();
+//   let index = 0;
+//   const p = new Promise((resolve) => {
+//     console.log("p1", Date.now() - start);
+//     setTimeout(() => {
+//       index = index + 1;
+//       resolve(`index:${index}`);
+//     }, 3000);
+//   });
+//   console.log("p2", Date.now() - start);
+//   const p_a = await p;
+//   console.log(p_a, Date.now() - start);
+//   const p_b = await p;
+//   console.log(p_b, Date.now() - start);
+// }
+
+// run();
+
+var say = function () {
+  console.log(words);
+};
+function run() {
+  var words = "hello";
+  say();
+}
+run();
+var words = "my";
