@@ -1,7 +1,7 @@
 Function.prototype.myCall = function (context, ...args) {
   context = typeof context === "object" ? context : window;
-  const key = Symbol();
-  context[key] = this;
+  const key = Symbol(); // 防止覆盖掉原有属性
+  context[key] = this; // 这里的 this 为 function 本身
   const result = context[key](...args);
   delete context[key];
   return result;

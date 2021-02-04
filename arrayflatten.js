@@ -11,7 +11,6 @@ function flatten(array) {
 function flatten2(array) {
   while (array.some((item) => Array.isArray(item))) {
     array = [].concat(...array);
-    // array = Array.prototype.concat.apply([], array);
   }
   return array;
 }

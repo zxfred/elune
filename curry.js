@@ -1,10 +1,9 @@
 // 关键知识点：function.length 用来获取函数的形参个数
 // 补充：arguments.length 获取的是实参个数
-function curry(func) {
+function curry(fn) {
   return function curried(...args) {
-    if (args.length >= func.length) {
-      console.log(this);
-      return func.apply(this, args);
+    if (args.length >= fn.length) {
+      return fn.apply(this, args);
     }
     return function (...newArgs) {
       return curried.apply(this, args.concat(newArgs));
