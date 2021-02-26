@@ -14,15 +14,17 @@ for (let i = 0; i < 10; i++) {
   promises.push(() => new Promise((resolve) => log(resolve)));
 }
 
+// solution 1
 // let p = Promise.resolve();
 // promises.forEach((promise) => {
 //   p = p.then(promise);
 // });
 
+// solution 2
 async function run() {
   for (const p of promises) {
     await p();
   }
 }
 
-run();
+// run();
